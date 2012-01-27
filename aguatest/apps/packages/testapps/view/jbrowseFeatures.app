@@ -5,11 +5,13 @@
    "owner" : "aguatest",
    "locked" : 0,
    "location" : "/agua/0.6/bin/apps/jbrowse/jbrowseFeatures.pl",
+   "version" : "0.6.0",
+   "installdir" : "/agua/0.6/t/bin/Agua/Common/Package/inputs/apps",
    "executor" : "/usr/bin/perl",
    "name" : "jbrowseFeatures",
    "duration" : "",
    "description" : "Generate JBrowse features for all chromosomes in parallel",
-   "stopped" : "",
+   "package" : "testapps",
    "parameters" : [
       {
          "value" : "hg19",
@@ -192,6 +194,7 @@
          "paramFunction" : ""
       }
    ],
+   "stopped" : "",
    "notes" : " ",
    "started" : "",
    "type" : "view",

@@ -5,11 +5,13 @@
    "owner" : "aguatest",
    "locked" : 0,
    "location" : "/agua/0.6/t/bin/Agua/Common/Package/inputs/apps/bin/aligners/TOPHAT.pl",
+   "version" : "0.6.0",
+   "installdir" : "/agua/0.6/t/bin/Agua/Common/Package/inputs/apps",
    "executor" : "/usr/bin/perl",
    "name" : "TOPHAT",
    "duration" : "",
    "description" : "A wrapper script to run TOPHAT (which uses Bowtie) to do fast short read alignment against a reference sequence",
-   "stopped" : "",
+   "package" : "testapps",
    "parameters" : [
       {
          "value" : "%project%/%workflow%/coverage.wig",
@@ -237,6 +239,7 @@
          "paramFunction" : ""
       }
    ],
+   "stopped" : "",
    "notes" : "Uses Tophat v 0.1.12 and Bowtie v 0.12.2",
    "started" : "",
    "type" : "expression",
