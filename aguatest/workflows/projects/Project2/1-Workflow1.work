@@ -1,6 +1,6 @@
 {
    "owner" : "aguatest",
-   "notes" : "",
+   "status" : "",
    "project" : "Project2",
    "apps" : [
       {
@@ -26,6 +26,10 @@
       }
    ],
    "name" : "Workflow1",
-   "description" : ""
+   "duration" : "",
+   "description" : "",
+   "stopped" : "",
+   "notes" : "",
+   "started" : ""
 }
 
