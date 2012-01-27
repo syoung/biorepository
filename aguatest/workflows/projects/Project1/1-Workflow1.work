@@ -1,7 +1,9 @@
-
-
-Workflow:
-project        Project1
-name           Workflow1
-owner          aguatest
+{
+   "owner" : "aguatest",
+   "notes" : "",
+   "project" : "Project1",
+   "apps" : [],
+   "name" : "Workflow1",
+   "description" : ""
+}
 
