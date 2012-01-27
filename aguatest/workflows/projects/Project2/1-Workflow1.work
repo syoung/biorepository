@@ -1,0 +1,31 @@
+{
+   "owner" : "aguatest",
+   "notes" : "",
+   "project" : "Project2",
+   "apps" : [
+      {
+         "status" : "",
+         "submit" : "0",
+         "ordinal" : 1,
+         "owner" : "aguatest",
+         "locked" : 0,
+         "location" : "/agua/0.6/bioapps/bin/aligners/TOPHAT.pl",
+         "version" : "0.6.0",
+         "installdir" : "/agua/0.6/t/bin/Agua/Common/Package/inputs/apps",
+         "executor" : "/usr/bin/perl",
+         "name" : "TOPHAT",
+         "duration" : "",
+         "description" : "",
+         "package" : "testapps",
+         "parameters" : [],
+         "stopped" : "",
+         "notes" : "",
+         "started" : "0000-00-00 00:00:00",
+         "type" : "expression",
+         "queued" : "0000-00-00 00:00:00"
+      }
+   ],
+   "name" : "Workflow1",
+   "description" : ""
+}
+

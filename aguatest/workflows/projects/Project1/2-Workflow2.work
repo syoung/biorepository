@@ -4,7 +4,7 @@
    "project" : "Project1",
    "apps" : [
       {
-         "status" : "error",
+         "status" : "",
          "submit" : "0",
          "ordinal" : 1,
          "owner" : "aguatest",
@@ -20,7 +20,7 @@
          "parameters" : [],
          "stopped" : "",
          "notes" : "",
-         "started" : "2012-01-12 19:08:03",
+         "started" : "0000-00-00 00:00:00",
          "type" : "utility",
          "queued" : "0000-00-00 00:00:00"
       },
@@ -51,11 +51,11 @@
          "ordinal" : 3,
          "owner" : "aguatest",
          "locked" : 0,
-         "location" : "/agua/0.6/bioapps/bin/converters/bowtieIndex.pl",
+         "location" : "/agua/0.6/bioapps/bin/aligners/elandHeader.pl",
          "version" : "0.6.0",
          "installdir" : "/agua/0.6/t/bin/Agua/Common/Package/inputs/apps",
          "executor" : "/usr/bin/perl",
-         "name" : "bowtieIndex",
+         "name" : "elandHeader",
          "duration" : "",
          "description" : "",
          "package" : "testapps",
@@ -72,11 +72,11 @@
          "ordinal" : 4,
          "owner" : "aguatest",
          "locked" : 0,
-         "location" : "/agua/0.6/bioapps/bin/aligners/TOPHAT.pl",
+         "location" : "/agua/0.6/bioapps/bin/converters/elandIndex.pl",
          "version" : "0.6.0",
          "installdir" : "/agua/0.6/t/bin/Agua/Common/Package/inputs/apps",
          "executor" : "/usr/bin/perl",
-         "name" : "TOPHAT",
+         "name" : "elandIndex",
          "duration" : "",
          "description" : "",
          "package" : "testapps",
@@ -84,11 +84,11 @@
          "stopped" : "",
          "notes" : "",
          "started" : "0000-00-00 00:00:00",
-         "type" : "expression",
+         "type" : "converter",
          "queued" : "0000-00-00 00:00:00"
       }
    ],
-   "name" : "Workflow1",
+   "name" : "Workflow2",
    "description" : ""
 }
 
