@@ -2,6 +2,7 @@
    "owner" : "anonymous",
    "locked" : 0,
    "status" : "",
+   "project" : "Project1",
    "apps" : [],
    "name" : "Workflow1",
    "duration" : "",
