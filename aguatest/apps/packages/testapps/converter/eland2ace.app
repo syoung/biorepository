@@ -4,16 +4,16 @@
    "ordinal" : null,
    "owner" : "aguatest",
    "locked" : 0,
-   "location" : null,
-   "executor" : "",
-   "name" : null,
+   "location" : "/agua/0.6/t/bin/Agua/Common/Package/inputs/apps/bin/apps/eland2ace.pl",
+   "executor" : "/usr/bin/perl",
+   "name" : "eland2ace",
    "duration" : "",
-   "description" : "",
+   "description" : "Convert Eland output sorted.txt file into an .ace file",
    "stopped" : "",
    "parameters" : [],
-   "notes" : "",
+   "notes" : " ",
    "started" : "",
-   "type" : null,
+   "type" : "converter",
    "queued" : ""
 }
 

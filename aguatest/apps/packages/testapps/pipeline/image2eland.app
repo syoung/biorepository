@@ -4,16 +4,16 @@
    "ordinal" : null,
    "owner" : "aguatest",
    "locked" : 0,
-   "location" : null,
-   "executor" : "",
-   "name" : null,
+   "location" : "/agua/0.6/t/bin/Agua/Common/Package/inputs/apps/bin/aligners/image2eland.pl",
+   "executor" : "/usr/bin/perl",
+   "name" : "image2eland",
    "duration" : "",
-   "description" : "",
+   "description" : "Process images into base calls with Bustard and align reads against reference sequence with Eland",
    "stopped" : "",
    "parameters" : [],
-   "notes" : "",
+   "notes" : " ",
    "started" : "",
-   "type" : null,
+   "type" : "pipeline",
    "queued" : ""
 }
 
