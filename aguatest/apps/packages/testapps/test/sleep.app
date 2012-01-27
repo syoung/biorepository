@@ -10,7 +10,23 @@
    "duration" : "",
    "description" : "Run test.pl to sleep and print to stdout file",
    "stopped" : "",
-   "parameters" : [],
+   "parameters" : [
+      {
+         "value" : "10",
+         "description" : "",
+         "discretion" : "optional",
+         "params" : "",
+         "ordinal" : "0",
+         "argument" : "--seconds",
+         "format" : "",
+         "paramtype" : "input",
+         "paramfile" : "",
+         "valuetype" : "integer",
+         "category" : "sleep",
+         "param" : "seconds",
+         "paramFunction" : ""
+      }
+   ],
    "notes" : " ",
    "started" : "",
    "type" : "test",
