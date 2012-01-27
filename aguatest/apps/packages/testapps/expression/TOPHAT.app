@@ -23,7 +23,7 @@
          "paramfile" : "",
          "valuetype" : "file",
          "category" : "coverage",
-         "param" : "",
+         "param" : "coverage",
          "paramFunction" : ""
       },
       {
@@ -38,7 +38,7 @@
          "paramfile" : "",
          "valuetype" : "integer",
          "category" : "cpus",
-         "param" : "",
+         "param" : "cpus",
          "paramFunction" : ""
       },
       {
@@ -53,7 +53,7 @@
          "paramfile" : "",
          "valuetype" : "integer",
          "category" : "distance",
-         "param" : "",
+         "param" : "distance",
          "paramFunction" : ""
       },
       {
@@ -68,7 +68,7 @@
          "paramfile" : "",
          "valuetype" : "file",
          "category" : "hits",
-         "param" : "",
+         "param" : "hits",
          "paramFunction" : ""
       },
       {
@@ -83,7 +83,7 @@
          "paramfile" : "",
          "valuetype" : "file",
          "category" : "inputfiles",
-         "param" : "",
+         "param" : "inputfiles",
          "paramFunction" : ""
       },
       {
@@ -98,7 +98,7 @@
          "paramfile" : "",
          "valuetype" : "integer",
          "category" : "jobs",
-         "param" : "",
+         "param" : "jobs",
          "paramFunction" : ""
       },
       {
@@ -113,7 +113,7 @@
          "paramfile" : "",
          "valuetype" : "file",
          "category" : "junctions",
-         "param" : "",
+         "param" : "junctions",
          "paramFunction" : ""
       },
       {
@@ -128,7 +128,7 @@
          "paramfile" : "",
          "valuetype" : "flag",
          "category" : "keep",
-         "param" : "",
+         "param" : "keep",
          "paramFunction" : ""
       },
       {
@@ -143,7 +143,7 @@
          "paramfile" : "",
          "valuetype" : "string",
          "category" : "label",
-         "param" : "",
+         "param" : "label",
          "paramFunction" : ""
       },
       {
@@ -158,7 +158,7 @@
          "paramfile" : "",
          "valuetype" : "file",
          "category" : "matefiles",
-         "param" : "",
+         "param" : "matefiles",
          "paramFunction" : ""
       },
       {
@@ -173,7 +173,7 @@
          "paramfile" : "",
          "valuetype" : "directory",
          "category" : "outputdir",
-         "param" : "",
+         "param" : "outputdir",
          "paramFunction" : ""
       },
       {
@@ -188,7 +188,7 @@
          "paramfile" : "",
          "valuetype" : "file",
          "category" : "outputfile",
-         "param" : "",
+         "param" : "outputfile",
          "paramFunction" : ""
       },
       {
@@ -203,7 +203,7 @@
          "paramfile" : "",
          "valuetype" : "string",
          "category" : "params",
-         "param" : "",
+         "param" : "params",
          "paramFunction" : ""
       },
       {
@@ -218,7 +218,7 @@
          "paramfile" : "",
          "valuetype" : "string",
          "category" : "queue",
-         "param" : "",
+         "param" : "queue",
          "paramFunction" : ""
       },
       {
@@ -233,7 +233,7 @@
          "paramfile" : "",
          "valuetype" : "file",
          "category" : "reference",
-         "param" : "",
+         "param" : "reference",
          "paramFunction" : ""
       }
    ],

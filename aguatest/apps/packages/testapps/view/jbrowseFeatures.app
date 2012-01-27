@@ -23,7 +23,7 @@
          "paramfile" : "",
          "valuetype" : "string",
          "category" : "build",
-         "param" : "",
+         "param" : "build",
          "paramFunction" : ""
       },
       {
@@ -38,7 +38,7 @@
          "paramfile" : "",
          "valuetype" : "integer",
          "category" : "cpus",
-         "param" : "",
+         "param" : "cpus",
          "paramFunction" : ""
       },
       {
@@ -53,7 +53,7 @@
          "paramfile" : "",
          "valuetype" : "string",
          "category" : "filename",
-         "param" : "",
+         "param" : "filename",
          "paramFunction" : "if ( hits != null && hits !=  ) { return hits.match(/([^\\\\/]+)$/)[1]; } for ( var i = 0; i < inputs.length; i++) { if ( inputs[i].value.match(/([^/]+.bam)$/) ) { return inputs[i].value.match(/([^/]+.bam)$/)[1]; }}"
       },
       {
@@ -68,7 +68,7 @@
          "paramfile" : "",
          "valuetype" : "string",
          "category" : "filetype",
-         "param" : "",
+         "param" : "filetype",
          "paramFunction" : ""
       },
       {
@@ -83,7 +83,7 @@
          "paramfile" : "",
          "valuetype" : "directory",
          "category" : "inputdir",
-         "param" : "",
+         "param" : "inputdir",
          "paramFunction" : "if ( outdir1 != null && outdir1 !=  ) return outdir1; if ( outdir2 != null && outdir2 !=  ) return outdir2;"
       },
       {
@@ -98,7 +98,7 @@
          "paramfile" : "",
          "valuetype" : "string",
          "category" : "jbrowse",
-         "param" : "",
+         "param" : "jbrowse",
          "paramFunction" : ""
       },
       {
@@ -113,7 +113,7 @@
          "paramfile" : "",
          "valuetype" : "string",
          "category" : "key",
-         "param" : "",
+         "param" : "key",
          "paramFunction" : ""
       },
       {
@@ -128,7 +128,7 @@
          "paramfile" : "",
          "valuetype" : "string",
          "category" : "label",
-         "param" : "",
+         "param" : "label",
          "paramFunction" : ""
       },
       {
@@ -143,7 +143,7 @@
          "paramfile" : "",
          "valuetype" : "integer",
          "category" : "maxjobs",
-         "param" : "",
+         "param" : "maxjobs",
          "paramFunction" : ""
       },
       {
@@ -158,7 +158,7 @@
          "paramfile" : "",
          "valuetype" : "integer",
          "category" : "sleep",
-         "param" : "",
+         "param" : "sleep",
          "paramFunction" : ""
       },
       {
@@ -173,7 +173,7 @@
          "paramfile" : "",
          "valuetype" : "string",
          "category" : "species",
-         "param" : "",
+         "param" : "species",
          "paramFunction" : ""
       },
       {
@@ -188,7 +188,7 @@
          "paramfile" : "",
          "valuetype" : "integer",
          "category" : "tempdir",
-         "param" : "",
+         "param" : "tempdir",
          "paramFunction" : ""
       }
    ],

@@ -23,7 +23,7 @@
          "paramfile" : "",
          "valuetype" : "string",
          "category" : "filter",
-         "param" : "",
+         "param" : "filter",
          "paramFunction" : ""
       },
       {
@@ -38,7 +38,7 @@
          "paramfile" : "",
          "valuetype" : "directory",
          "category" : "outputdir",
-         "param" : "",
+         "param" : "outputdir",
          "paramFunction" : ""
       },
       {
@@ -53,7 +53,7 @@
          "paramfile" : "",
          "valuetype" : "string",
          "category" : "regex",
-         "param" : "",
+         "param" : "regex",
          "paramFunction" : null
       },
       {
@@ -68,7 +68,7 @@
          "paramfile" : "",
          "valuetype" : "string",
          "category" : "type",
-         "param" : "",
+         "param" : "type",
          "paramFunction" : ""
       },
       {
@@ -83,7 +83,7 @@
          "paramfile" : "",
          "valuetype" : "string",
          "category" : "url",
-         "param" : "",
+         "param" : "url",
          "paramFunction" : ""
       }
    ],

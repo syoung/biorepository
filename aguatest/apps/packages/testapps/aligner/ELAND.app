@@ -23,7 +23,7 @@
          "paramfile" : "",
          "valuetype" : "flag",
          "category" : "clean",
-         "param" : "",
+         "param" : "clean",
          "paramFunction" : ""
       },
       {
@@ -38,7 +38,7 @@
          "paramfile" : "",
          "valuetype" : "files",
          "category" : "hits",
-         "param" : "",
+         "param" : "hits",
          "paramFunction" : "return outputdir + /chr*/hit.bam;"
       },
       {
@@ -53,7 +53,7 @@
          "paramfile" : "",
          "valuetype" : "file",
          "category" : "inputfile",
-         "param" : "",
+         "param" : "inputfile",
          "paramFunction" : ""
       },
       {
@@ -68,7 +68,7 @@
          "paramfile" : "",
          "valuetype" : "string",
          "category" : "inputtype",
-         "param" : "",
+         "param" : "inputtype",
          "paramFunction" : ""
       },
       {
@@ -83,7 +83,7 @@
          "paramfile" : "",
          "valuetype" : "string",
          "category" : "label",
-         "param" : "",
+         "param" : "label",
          "paramFunction" : ""
       },
       {
@@ -98,7 +98,7 @@
          "paramfile" : "",
          "valuetype" : "file",
          "category" : "matefile",
-         "param" : "",
+         "param" : "matefile",
          "paramFunction" : ""
       },
       {
@@ -113,7 +113,7 @@
          "paramfile" : "",
          "valuetype" : "directory",
          "category" : "outputdir",
-         "param" : "",
+         "param" : "outputdir",
          "paramFunction" : ""
       },
       {
@@ -128,7 +128,7 @@
          "paramfile" : "",
          "valuetype" : "string",
          "category" : "pairparams",
-         "param" : "",
+         "param" : "pairparams",
          "paramFunction" : ""
       },
       {
@@ -143,7 +143,7 @@
          "paramfile" : "",
          "valuetype" : "integer",
          "category" : "quality",
-         "param" : "",
+         "param" : "quality",
          "paramFunction" : ""
       },
       {
@@ -158,7 +158,7 @@
          "paramfile" : "",
          "valuetype" : "integer",
          "category" : "reads",
-         "param" : "",
+         "param" : "reads",
          "paramFunction" : ""
       },
       {
@@ -173,7 +173,7 @@
          "paramfile" : "",
          "valuetype" : "directory",
          "category" : "referencedir",
-         "param" : "",
+         "param" : "referencedir",
          "paramFunction" : ""
       },
       {
@@ -188,7 +188,7 @@
          "paramfile" : "",
          "valuetype" : "integer",
          "category" : "seedlength",
-         "param" : "",
+         "param" : "seedlength",
          "paramFunction" : ""
       },
       {
@@ -203,7 +203,7 @@
          "paramfile" : "",
          "valuetype" : "string",
          "category" : "species",
-         "param" : "",
+         "param" : "species",
          "paramFunction" : ""
       },
       {
@@ -218,7 +218,7 @@
          "paramfile" : "",
          "valuetype" : "file",
          "category" : "splitfile",
-         "param" : "",
+         "param" : "splitfile",
          "paramFunction" : ""
       }
    ],

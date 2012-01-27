@@ -23,7 +23,7 @@
          "paramfile" : "",
          "valuetype" : "integer",
          "category" : "sleep",
-         "param" : "",
+         "param" : "seconds",
          "paramFunction" : ""
       }
    ],

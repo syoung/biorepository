@@ -23,7 +23,7 @@
          "paramfile" : "",
          "valuetype" : "string",
          "category" : "chromosome",
-         "param" : "",
+         "param" : "chromosome",
          "paramFunction" : ""
       },
       {
@@ -38,7 +38,7 @@
          "paramfile" : "",
          "valuetype" : "integer",
          "category" : "coverage",
-         "param" : "",
+         "param" : "coverage",
          "paramFunction" : ""
       },
       {
@@ -53,7 +53,7 @@
          "paramfile" : "",
          "valuetype" : "file",
          "category" : "filename",
-         "param" : "",
+         "param" : "filename",
          "paramFunction" : ""
       },
       {
@@ -68,7 +68,7 @@
          "paramfile" : "",
          "valuetype" : "directory",
          "category" : "inputdir",
-         "param" : "",
+         "param" : "inputdir",
          "paramFunction" : ""
       },
       {
@@ -83,7 +83,7 @@
          "paramfile" : "",
          "valuetype" : "directory",
          "category" : "outputdir",
-         "param" : "",
+         "param" : "outputdir",
          "paramFunction" : ""
       },
       {
@@ -98,7 +98,7 @@
          "paramfile" : "",
          "valuetype" : "integer",
          "category" : "quality",
-         "param" : "",
+         "param" : "quality",
          "paramFunction" : ""
       },
       {
@@ -113,7 +113,7 @@
          "paramfile" : "",
          "valuetype" : "string",
          "category" : "sense",
-         "param" : "",
+         "param" : "sense",
          "paramFunction" : ""
       },
       {
@@ -128,7 +128,7 @@
          "paramfile" : "",
          "valuetype" : "string",
          "category" : "species",
-         "param" : "",
+         "param" : "species",
          "paramFunction" : ""
       }
    ],
