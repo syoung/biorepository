@@ -1,17 +1,13 @@
 {
-   "status" : "",
-   "submit" : null,
-   "ordinal" : null,
    "owner" : "aguatest",
-   "locked" : 0,
-   "location" : "/agua/0.6/bin/apps/jbrowse/jbrowseFeatures.pl",
-   "version" : "0.6.0",
-   "installdir" : "/agua/0.6/t/bin/Agua/Common/Package/inputs/apps",
+   "location" : "bin/apps/jbrowse/jbrowseFeatures.pl",
    "executor" : "/usr/bin/perl",
+   "installdir" : "/agua/0.6/t/bin/Agua/Common/Package/outputs/private/apps/aguatest/apps",
+   "version" : "0.6.0",
    "name" : "jbrowseFeatures",
-   "duration" : "",
+   "localonly" : "0",
    "description" : "Generate JBrowse features for all chromosomes in parallel",
-   "package" : "testapps",
+   "package" : "apps",
    "parameters" : [
       {
          "value" : "hg19",
@@ -194,10 +190,9 @@
          "paramFunction" : ""
       }
    ],
-   "stopped" : "",
+   "ordinal" : null,
    "notes" : " ",
-   "started" : "",
-   "type" : "view",
-   "queued" : ""
+   "url" : "http://www.aguadev.org/confluence/display/howto/Bioapps+API",
+   "type" : "view"
 }
 

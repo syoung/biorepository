@@ -1,17 +1,13 @@
 {
-   "status" : "",
-   "submit" : null,
-   "ordinal" : null,
    "owner" : "aguatest",
-   "locked" : 0,
-   "location" : "/agua/0.6/t/bin/Agua/Common/Package/inputs/apps/bin/filters/filterSNP.pl",
-   "version" : "0.6.0",
-   "installdir" : "/agua/0.6/t/bin/Agua/Common/Package/inputs/apps",
+   "location" : "bin/filters/filterSNP.pl",
    "executor" : "/usr/bin/perl",
+   "installdir" : "/agua/0.6/t/bin/Agua/Common/Package/outputs/private/apps/aguatest/apps",
+   "version" : "0.6.0",
    "name" : "filterSNP",
-   "duration" : "",
+   "localonly" : "0",
    "description" : "Filter SNPs by quality, coverage, etc.",
-   "package" : "testapps",
+   "package" : "apps",
    "parameters" : [
       {
          "value" : "",
@@ -134,10 +130,9 @@
          "paramFunction" : ""
       }
    ],
-   "stopped" : "",
+   "ordinal" : null,
    "notes" : " ",
-   "started" : "",
-   "type" : "report",
-   "queued" : ""
+   "url" : "http://www.aguadev.org/confluence/display/howto/Bioapps+API",
+   "type" : "report"
 }
 

@@ -1,17 +1,13 @@
 {
-   "status" : "",
-   "submit" : null,
-   "ordinal" : null,
    "owner" : "aguatest",
-   "locked" : 0,
-   "location" : "/agua/0.6/t/bin/Agua/Common/Package/inputs/apps/bin/utils/deepvac.pl",
-   "version" : "0.6.0",
-   "installdir" : "/agua/0.6/t/bin/Agua/Common/Package/inputs/apps",
+   "location" : "bin/utils/deepvac.pl",
    "executor" : "/usr/bin/perl",
+   "installdir" : "/agua/0.6/t/bin/Agua/Common/Package/outputs/private/apps/aguatest/apps",
+   "version" : "0.6.0",
    "name" : "FTP",
-   "duration" : "",
+   "localonly" : "0",
    "description" : "Download FTP files or web pages from a URL",
-   "package" : "testapps",
+   "package" : "apps",
    "parameters" : [
       {
          "value" : "",
@@ -89,10 +85,9 @@
          "paramFunction" : ""
       }
    ],
-   "stopped" : "",
+   "ordinal" : null,
    "notes" : "Download all files found in links in a page or raw text file",
-   "started" : "",
-   "type" : "utility",
-   "queued" : ""
+   "url" : "http://www.aguadev.org/confluence/display/howto/Bioapps+API",
+   "type" : "utility"
 }
 

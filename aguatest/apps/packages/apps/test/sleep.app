@@ -1,17 +1,13 @@
 {
-   "status" : "",
-   "submit" : null,
-   "ordinal" : null,
    "owner" : "aguatest",
-   "locked" : 0,
-   "location" : "/agua/0.6/t/bin/Agua/Common/Package/inputs/apps/bin/test/test.sh",
-   "version" : "0.6.0",
-   "installdir" : "/agua/0.6/t/bin/Agua/Common/Package/inputs/apps",
+   "location" : "bin/test/test.sh",
    "executor" : "/bin/sh",
+   "installdir" : "/agua/0.6/t/bin/Agua/Common/Package/outputs/private/apps/aguatest/apps",
+   "version" : "0.6.0",
    "name" : "sleep",
-   "duration" : "",
+   "localonly" : "0",
    "description" : "Run test.pl to sleep and print to stdout file",
-   "package" : "testapps",
+   "package" : "apps",
    "parameters" : [
       {
          "value" : "10",
@@ -29,10 +25,9 @@
          "paramFunction" : ""
       }
    ],
-   "stopped" : "",
+   "ordinal" : null,
    "notes" : " ",
-   "started" : "",
-   "type" : "test",
-   "queued" : ""
+   "url" : "http://www.aguadev.org/confluence/display/howto/Bioapps+API",
+   "type" : "test"
 }
 

@@ -1,17 +1,13 @@
 {
-   "status" : "",
-   "submit" : null,
-   "ordinal" : null,
    "owner" : "aguatest",
-   "locked" : 0,
-   "location" : "/agua/0.6/t/bin/Agua/Common/Package/inputs/apps/bin/aligners/ELAND.pl",
-   "version" : "0.6.0",
-   "installdir" : "/agua/0.6/t/bin/Agua/Common/Package/inputs/apps",
+   "location" : "bin/aligners/ELAND.pl",
    "executor" : "/usr/bin/perl",
+   "installdir" : "/agua/0.6/t/bin/Agua/Common/Package/outputs/private/apps/aguatest/apps",
+   "version" : "0.6.0",
    "name" : "ELAND",
-   "duration" : "",
+   "localonly" : "0",
    "description" : "Solexa/Illumina short read aligner (max 32 bps aligned)",
-   "package" : "testapps",
+   "package" : "apps",
    "parameters" : [
       {
          "value" : "1",
@@ -224,10 +220,9 @@
          "paramFunction" : ""
       }
    ],
-   "stopped" : "",
+   "ordinal" : null,
    "notes" : " ",
-   "started" : "",
-   "type" : "aligner",
-   "queued" : ""
+   "url" : "http://www.aguadev.org/confluence/display/howto/Bioapps+API",
+   "type" : "aligner"
 }
 

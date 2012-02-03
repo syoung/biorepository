@@ -1,17 +1,13 @@
 {
-   "status" : "",
-   "submit" : null,
-   "ordinal" : null,
    "owner" : "aguatest",
-   "locked" : 0,
-   "location" : "/agua/0.6/t/bin/Agua/Common/Package/inputs/apps/bin/aligners/TOPHAT.pl",
-   "version" : "0.6.0",
-   "installdir" : "/agua/0.6/t/bin/Agua/Common/Package/inputs/apps",
+   "location" : "bin/aligners/TOPHAT.pl",
    "executor" : "/usr/bin/perl",
+   "installdir" : "/agua/0.6/t/bin/Agua/Common/Package/outputs/private/apps/aguatest/apps",
+   "version" : "0.6.0",
    "name" : "TOPHAT",
-   "duration" : "",
+   "localonly" : "0",
    "description" : "A wrapper script to run TOPHAT (which uses Bowtie) to do fast short read alignment against a reference sequence",
-   "package" : "testapps",
+   "package" : "apps",
    "parameters" : [
       {
          "value" : "%project%/%workflow%/coverage.wig",
@@ -239,10 +235,9 @@
          "paramFunction" : ""
       }
    ],
-   "stopped" : "",
+   "ordinal" : null,
    "notes" : "Uses Tophat v 0.1.12 and Bowtie v 0.12.2",
-   "started" : "",
-   "type" : "expression",
-   "queued" : ""
+   "url" : "http://www.aguadev.org/confluence/display/howto/Bioapps+API",
+   "type" : "expression"
 }
 
