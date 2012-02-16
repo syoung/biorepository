@@ -20,31 +20,45 @@ method preInstall {
 	my 	$owner 			= $self->owner();
 	my 	$private 		= $self->private();
 	my  $repository 	= $self->repository();
-	my  $random 		= $self->random();
 	
+	my $currentversion = $self->conf()->getKey('agua', 'VERSION');
+	$self->logDebug("currentversion", $currentversion);
+
 	$self->logError("owner not defined") and exit if not defined $owner;
 	$self->logError("package not defined") and exit if not defined $package;
 	$self->logError("username not defined") and exit if not defined $username;
 	$self->logError("repotype not defined") and exit if not defined $repotype;
 	$self->logError("repository not defined") and exit if not defined $repository;
+	$self->logError("currentversion not defined") and exit if not defined $currentversion;
 	
 	$self->logDebug("owner", $owner);
 	$self->logDebug("package", $package);
 	$self->logDebug("username", $username);
 	$self->logDebug("repotype", $repotype);
 	$self->logDebug("repository", $repository);
-	$self->logDebug("private", $private);
-	$self->logDebug("version", $version);
-	$self->logDebug("random", $random);
+	$self->logDebug("currentversion", $currentversion);
+	$self->logDebug("private", $private) if defined $private;
+	$self->logDebug("version", $version) if defined $version;
+
+	#### SET HTML LOGFILE
+	my $logfile = $self->setLogfile($package);
+
+	#### SEND STATUS
+	print "{ status: 'installing', url: '$logfile', version: '$version' }";
+
+
+$self->logDebug("DEBUG EXIT") and exit;
+
+	#### FAKE TERMINATION
+	$self->fakeTermination(5);
+	$self->logDebug("AFTER fakeTermination");
 
 	#### START LOGGING TO HTML FILE
-	my $logfile = $self->setHtmlLogFile($package, $random);
 	$self->logDebug("logfile", $logfile);
 	$self->startHtmlLog($package, $version, $logfile);
 
-	$self->updateReport(["Completed preInstall"]);
-
-	return;
+	$self->updateReport(["Doing preInstall"]);
+	$self->updateReport(["Current version: $currentversion"]);	
 }
 
 method postInstall {
@@ -61,12 +75,12 @@ method postInstall {
 	my $appdir = $self->setAppDir($opsdir, $username, $package);
 	$self->logDebug("appdir", $appdir);
 	
-	$self->updateReport(["Loading apps in appdir: $appdir"]);
-	$self->logDebug("Doing loadAppFiles");
-	$self->loadAppFiles($username, $package, $installdir, $appdir);
-	$self->logDebug("Completed loadAppFiles");
+	#$self->logDebug("Doing loadAppFiles");
+	#$self->loadAppFiles($username, $package, $installdir, $appdir);
+	#$self->logDebug("Completed loadAppFiles");
 
-	$self->logDebug("self->opsinfo", $self->opsinfo());
+	#$self->logDebug("self->opsinfo", $self->opsinfo());
+	$self->logDebug("self->opsinfo: ". $self->opsinfo());
 	my $resources 	= $self->opsinfo()->resources();
 	my $version = $self->opsinfo()->version();
 	$self->logDebug("version", $version);
@@ -81,7 +95,7 @@ method postInstall {
 	$self->logDebug("id", $id);
 	$self->logDebug("description", $description);
 	
-	#### NOTE: SKIP BECAUSE LOADED BY DEFAULT
+	#### LOADED BY DEFAULT
 	#$self->loadSnapshot($name, $id, $description);
 
 	#### GET DATA VOLUME MOUNT POINT
@@ -98,7 +112,6 @@ method postInstall {
 	return if not -f $configfile;
 	$self->loadConfig($configfile, $mountpoint);
 	
-	return;
 }
 
 method getVolume ($snapshot) {
