@@ -1,0 +1,29 @@
+{
+   "owner" : "admin",
+   "number" : null,
+   "provenance" : "",
+   "status" : "",
+   "name" : "Reference",
+   "duration" : "",
+   "description" : "",
+   "stopped" : "",
+   "notes" : "",
+   "started" : "",
+   "workflows" : [
+      {
+         "owner" : "admin",
+         "number" : "1",
+         "provenance" : null,
+         "status" : "",
+         "project" : "Reference",
+         "apps" : [],
+         "name" : "genomes",
+         "duration" : "",
+         "description" : "",
+         "stopped" : "",
+         "notes" : "",
+         "started" : ""
+      }
+   ]
+}
+
