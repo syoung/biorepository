@@ -26,22 +26,8 @@ method preInstall {
 	#### CHECK INPUTS
 	$self->checkInputs();
 
-	#### START LOGGING TO HTML FILE
-	my  $package 		= $self->package();
-	my 	$version 		= $self->version();
-	my  $random 		= $self->random();
-	$self->logDebug("version", $version);
-	$self->logDebug("random", $random);
-
-	#### SET HTML LOG FILE
-	my $logfile = $self->setHtmlLogFile($package, $random);
-	$self->logDebug("logfile", $logfile);
-
-	#### START LOGGING TO HTML FILE
-	$self->startHtmlLog($package, $version, $logfile);
-
-	#### COPY CONF FILE
-	$self->copyConf();
+	#### MOVE CONF FILE
+	$self->moveConf();
 
 	#### REPORT PROGRESSS
 	$self->updateReport(["Doing preInstall"]);
@@ -49,6 +35,61 @@ method preInstall {
 	$self->updateReport(["Current version: $aguaversion"]);
 	
 	return "Completed preInstall";
+}
+
+#### POST-INSTALL
+method postInstall {
+	$self->logDebug("");
+
+	#### UPDATE CONFIG FILE	
+	my $conffile 	=	$self->setConfFile();
+	my $tempconf	=	$self->setTempConfFile();
+	$self->updateConfig($conffile, $tempconf);
+
+	#### RESTORE CONFIG FILE
+	$self->restoreConf();
+	
+	#### UPDATE CONFIG WITH NEW ENTRIES IF NOT PRESENT
+	my $installdir = $self->installdir();
+	my $distroconfig = "$installdir/bin/scripts/resources/agua/conf/default.conf";
+	$self->updateConfig($distroconfig, $conffile);
+
+	#### UPDATE AGUA VERSION IN CONFIG
+	my $version = $self->version();
+	$self->logDebug("version", $version);
+	$self->conf()->setKey("agua", "VERSION", $version);
+
+	#### RUN INSTALL TO SET PERMISSIONS, ETC.
+	$self->runUpgrade();
+
+	return "Completed postInstall";
+}
+#### UTILS
+method runUpgrade {
+	my $installdir	=	$self->installdir();
+	$installdir = "/agua" if not defined $installdir;
+	$self->logDebug("installdir", $installdir);
+
+##### DEBUG 
+##### DEBUG 
+##### DEBUG 
+#	my $permsfile = "$installdir/bin/scripts/resources/agua/permissions.txt";
+#	`mv $permsfile $permsfile.safe`;
+#	`echo "#### DEBUG EMPTY PERMISSIONS" > $permsfile`;
+##### DEBUG 
+##### DEBUG 
+##### DEBUG 
+
+	my $logfile = $self->logfile();
+	$self->changeDir("$installdir/bin/scripts");
+	my $command = qq{$installdir/bin/scripts/install.pl \\
+--mode upgrade \\
+--installdir $installdir \\
+--logfile $logfile
+};
+	$self->logDebug("command", $command);
+
+	$self->runCommand($command);
 }
 
 method checkInputs {
@@ -80,10 +121,10 @@ method checkInputs {
 	$self->logDebug("version", $version);
 }
 
-method copyConf () {
+method moveConf () {
 	my $conffile 	=	$self->setConfFile();
 	my $tempconf	=	$self->setTempConfFile();
-	my $command = "cp -f $conffile $tempconf; chmod 600 $tempconf";
+	my $command = "mv -f $conffile $tempconf; chmod 600 $tempconf";
 	$self->logDebug("command", $command);
 	
 	$self->runCommand($command);
@@ -110,56 +151,12 @@ method setConfFile {
 
 method setTempConfFile {
 	return $self->tempconffile() if defined $self->tempconffile();
-	my $tempconffile 	=	"/tmp/agua-default.conf";
+	my $tempdir = "/tempconf";
+	`mkdir $tempdir` if not -d $tempdir;
+	my $tempconffile 	=	"$tempdir/agua-default.conf";
 	$self->tempconffile($tempconffile);
 	
 	return $tempconffile;
-}
-
-#### POST-INSTALL
-method postInstall {
-	$self->logDebug("");
-	
-	#### RESTORE CONFIG FILE
-	$self->restoreConf();
-	
-	#### UPDATE AGUA VERSION IN CONFIG
-	my $version = $self->version();
-	$self->logDebug("version", $version);
-	$self->conf()->setKey("agua", "VERSION", $version);
-
-	#### RUN INSTALL TO SET PERMISSIONS, ETC.
-	$self->runUpgrade();
-
-	return "Completed postInstall";
-}
-
-method runUpgrade {
-	my $installdir	=	$self->installdir();
-	$installdir = "/agua" if not defined $installdir;
-	$self->logDebug("installdir", $installdir);
-
-
-#### DEBUG 
-#### DEBUG 
-#### DEBUG 
-	my $permsfile = "$installdir/bin/scripts/resources/agua/permissions.txt";
-	`mv $permsfile $permsfile.safe`;
-	`echo "#### DEBUG EMPTY PERMISSIONS" > $permsfile`;
-#### DEBUG 
-#### DEBUG 
-#### DEBUG 
-
-	my $logfile = $self->logfile();
-	$self->changeDir("$installdir/bin/scripts");
-	my $command = qq{$installdir/bin/scripts/install.pl \\
---mode upgrade \\
---installdir $installdir \\
---logfile $logfile
-};
-	$self->logDebug("command", $command);
-
-	$self->runCommand($command);
 }
 
 1;

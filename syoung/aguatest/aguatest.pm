@@ -17,11 +17,10 @@ method preInstall {
 	$self->logDebug("");
 
 	#### SET VARIABLES
-    $self->owner("agua");
-	$self->repository("agua");
-	$self->package("agua");
+    $self->owner("syoung");
+	$self->repository("aguatest");
+	$self->package("aguatest");
 	$self->repotype("github");
-	$self->private(0);
 
 	#### CHECK INPUTS
 	$self->checkInputs();
@@ -55,7 +54,7 @@ method checkInputs {
 	my  $package 		= $self->package();
 	my  $repotype 		= $self->repotype();
 	my 	$owner 			= $self->owner();
-	my 	$private 		= $self->private();
+	my 	$privacy 		= $self->privacy();
 	my  $repository 	= $self->repository();	
 	my 	$aguaversion 	= $self->conf()->getKey('agua', 'VERSION');
 
@@ -73,7 +72,7 @@ method checkInputs {
 	$self->logDebug("repotype", $repotype);
 	$self->logDebug("repository", $repository);
 	$self->logDebug("aguaversion", $aguaversion);
-	$self->logDebug("private", $private);
+	$self->logDebug("privacy", $privacy);
 	$self->logDebug("version", $version);
 }
 
@@ -81,8 +80,19 @@ method checkInputs {
 method postInstall {
 	$self->logDebug("");
 
+	#### LINK DIRS
+	my $installdir = $self->conf()->getKey("agua", "INSTALLDIR");
+	$self->logDebug("installdir", $installdir);
+	my $command = "ln -s $installdir/t/cgi-bin $installdir/cgi-bin/t";
+	$self->logDebug("command", $command);
+	`$command`;
+	$command = "ln -s $installdir/t/html $installdir/html/t";
+	$self->logDebug("command", $command);
+	`$command`;
+
 	return "Completed postInstall";
 }
 
 
 1;
+

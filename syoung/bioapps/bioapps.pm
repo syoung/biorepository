@@ -21,15 +21,6 @@ method preInstall {
 	#### CHECK INPUTS
 	$self->checkInputs();
 	
-	my  $package 		= $self->package();
-	my 	$version 		= $self->version();
-	my  $random 		= $self->random();
-
-	#### START LOGGING TO HTML FILE
-	my $logfile = $self->setHtmlLogFile($package, $random);
-	$self->logDebug("logfile", $logfile);
-	$self->startHtmlLog($package, $version, $logfile);
-
 	$self->updateReport(["Completed preInstall"]);
 
 	return;
