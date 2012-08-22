@@ -20,8 +20,8 @@ method preInstall {
     $self->owner("agua");
 	$self->repository("agua");
 	$self->package("agua");
-	$self->repotype("github");
-	$self->private(0);
+	$self->hubtype("github");
+	$self->privacy("public");
 
 	#### CHECK INPUTS
 	$self->checkInputs();
@@ -70,16 +70,6 @@ method runUpgrade {
 	$installdir = "/agua" if not defined $installdir;
 	$self->logDebug("installdir", $installdir);
 
-##### DEBUG 
-##### DEBUG 
-##### DEBUG 
-#	my $permsfile = "$installdir/bin/scripts/resources/agua/permissions.txt";
-#	`mv $permsfile $permsfile.safe`;
-#	`echo "#### DEBUG EMPTY PERMISSIONS" > $permsfile`;
-##### DEBUG 
-##### DEBUG 
-##### DEBUG 
-
 	my $logfile = $self->logfile();
 	$self->changeDir("$installdir/bin/scripts");
 	my $command = qq{$installdir/bin/scripts/install.pl \\
@@ -97,9 +87,9 @@ method checkInputs {
 	my 	$username 		= $self->username();
 	my 	$version 		= $self->version();
 	my  $package 		= $self->package();
-	my  $repotype 		= $self->repotype();
+	my  $hubtype 		= $self->hubtype();
 	my 	$owner 			= $self->owner();
-	my 	$private 		= $self->private();
+	my 	$privacy 		= $self->privacy();
 	my  $repository 	= $self->repository();	
 	my 	$aguaversion 	= $self->conf()->getKey('agua', 'VERSION');
 
@@ -107,56 +97,59 @@ method checkInputs {
 	$self->logError("version not defined") and exit if not defined $version;
 	$self->logError("package not defined") and exit if not defined $package;
 	$self->logError("username not defined") and exit if not defined $username;
-	$self->logError("repotype not defined") and exit if not defined $repotype;
+	$self->logError("hubtype not defined") and exit if not defined $hubtype;
 	$self->logError("repository not defined") and exit if not defined $repository;
 	$self->logError("aguaversion not defined") and exit if not defined $aguaversion;
 	
 	$self->logDebug("owner", $owner);
 	$self->logDebug("package", $package);
 	$self->logDebug("username", $username);
-	$self->logDebug("repotype", $repotype);
+	$self->logDebug("hubtype", $hubtype);
 	$self->logDebug("repository", $repository);
 	$self->logDebug("aguaversion", $aguaversion);
-	$self->logDebug("private", $private);
+	$self->logDebug("privacy", $privacy);
 	$self->logDebug("version", $version);
 }
 
 method moveConf () {
-	my $conffile 	=	$self->setConfFile();
-	my $tempconf	=	$self->setTempConfFile();
-	my $command = "mv -f $conffile $tempconf; chmod 600 $tempconf";
+	my $confdir 	=	$self->setConfDir();
+	my $tempdir	=	$self->setTempDir();
+	`mkdir $tempdir` if not -d $tempdir;
+	$self->logError("Can't create tempdir", $tempdir) and exit if not -d $tempdir;
+	`chmod 700 $tempdir`;
+
+	my $command = "mv -f $confdir/* $tempdir";
 	$self->logDebug("command", $command);
 	
 	$self->runCommand($command);
 }
 
 method restoreConf {
-	my $conffile 	=	$self->setConfFile();
-	my $tempconf	=	$self->setTempConfFile();
-	my $apacheuser	=	$self->conf()->getKey("agua", "APACHEUSER");
-	my $command 	= "mv $tempconf $conffile; chown root:$apacheuser $conffile; chmod 660 $conffile";
+	my $confdir 	=	$self->setConfDir();
+	my $tempdir		=	$self->setTempDir();
+	`mkdir $confdir` if not -d $confdir;
+	$self->logError("Can't create confdir", $confdir) and exit if not -d $confdir;
+	`chmod 700 $confdir`;
+	my $command 	= "cp -fr $tempdir/* $confdir";
 	$self->logDebug("command", $command);
 
 	$self->runCommand($command);
 }
 
-method setConfFile {
-	return $self->conffile() if defined $self->conffile();
+method setConfDir {
+	return $self->confdir() if defined $self->confdir();
 	my $installdir 	= 	$self->installdir();
-	my $conffile 	=	"$installdir/conf/default.conf";
-	$self->conffile($conffile);
+	my $confdir 	=	"$installdir/conf";
+	$self->confdir($confdir);
 	
-	return $conffile;
+	return $confdir;
 }
 
-method setTempConfFile {
-	return $self->tempconffile() if defined $self->tempconffile();
+method setTempDir {
+	return $self->tempdirfile() if defined $self->tempdirfile();
 	my $tempdir = "/tempconf";
-	`mkdir $tempdir` if not -d $tempdir;
-	my $tempconffile 	=	"$tempdir/agua-default.conf";
-	$self->tempconffile($tempconffile);
 	
-	return $tempconffile;
+	return $tempdir;
 }
 
 1;
