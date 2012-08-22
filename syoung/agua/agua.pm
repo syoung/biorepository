@@ -60,6 +60,11 @@ method postInstall {
 	#### RUN INSTALL TO SET PERMISSIONS, ETC.
 	$self->runUpgrade();
 
+	#### RESTART FCGI
+	my $command = "service apache2 restart";
+	$self->logDebug("command", $command);
+	`$command`;
+
 	return "Completed postInstall";
 }
 #### UTILS
