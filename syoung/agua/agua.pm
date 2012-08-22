@@ -41,17 +41,15 @@ method preInstall {
 method postInstall {
 	$self->logDebug("");
 
-	#### UPDATE CONFIG FILE	
-	my $conffile 	=	$self->setConfFile();
-	my $tempconf	=	$self->setTempConfFile();
-	$self->updateConfig($conffile, $tempconf);
-
 	#### RESTORE CONFIG FILE
 	$self->restoreConf();
 	
 	#### UPDATE CONFIG WITH NEW ENTRIES IF NOT PRESENT
-	my $installdir = $self->installdir();
-	my $distroconfig = "$installdir/bin/scripts/resources/agua/conf/default.conf";
+	my $confdir		=	$self->setConfDir();
+	my $conffile 	=	"$confdir/default.conf";
+	my $installdir 	= 	$self->installdir();
+	my $distroconfig= 	"$installdir/bin/scripts/resources/agua/conf/default.conf";
+	$self->logDebug("DOING updateConfig($distroconfig, $conffile)");
 	$self->updateConfig($distroconfig, $conffile);
 
 	#### UPDATE AGUA VERSION IN CONFIG
