@@ -146,8 +146,9 @@ method setConfDir {
 }
 
 method setTempDir {
-	return $self->tempdirfile() if defined $self->tempdirfile();
+	return $self->tempdir() if defined $self->tempdir();
 	my $tempdir = "/tempconf";
+	$self->tempdir($tempdir);
 	
 	return $tempdir;
 }
