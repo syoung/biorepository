@@ -7,8 +7,8 @@ use Data::Dumper;
 has 'installdir'=> ( isa => 'Str|Undef', is => 'rw', default	=>	'/agua'	);
 has 'version'	=> ( isa => 'Str|Undef', is => 'rw', required	=>	0	);
 has 'repo'		=> ( isa => 'Str|Undef', is => 'rw', default	=> 'github'	);
-has 'conffile'	=> ( isa => 'Str|Undef', is => 'rw', required	=>	0	);
-has 'tempconffile'	=> ( isa => 'Str|Undef', is => 'rw', required	=>	0	);
+has 'confdir'	=> ( isa => 'Str|Undef', is => 'rw', required	=>	0	);
+has 'tempdir'	=> ( isa => 'Str|Undef', is => 'rw', required	=>	0	);
 
 ####///}}}}
 
