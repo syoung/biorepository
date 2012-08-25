@@ -60,13 +60,29 @@ method postInstall {
 	#### RUN INSTALL TO SET PERMISSIONS, ETC.
 	$self->runUpgrade();
 
-	#### RESTART FCGI
-	my $command = "service apache2 restart";
-	$self->logDebug("command", $command);
-	`$command`;
-
 	return "Completed postInstall";
 }
+
+method terminalInstall  {
+	$self->logDebug("");
+	
+	#### KILL EXISTING FCGI PROCESSES
+	#### AND RESTART FCGI
+	my $commands = [
+"service apache2 restart",
+"killall admin.pl",
+"killall sharing.pl",
+"killall folders.pl",
+"killall package.pl",
+"killall view.pl",
+"killall workflow.pl"
+	];
+	foreach my $command ( @$commands ) {
+		$self->logDebug("command", $command);
+		`$command`;
+	}		
+}
+
 #### UTILS
 method runUpgrade {
 	my $installdir	=	$self->installdir();
