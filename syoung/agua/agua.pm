@@ -17,11 +17,13 @@ method preInstall {
 	$self->logDebug("");
 
 	#### SET VARIABLES
-    $self->owner("agua");
+    $self->owner("agua") if not $self->owner();
 	$self->repository("agua");
 	$self->package("agua");
 	$self->hubtype("github");
 	$self->privacy("public");
+
+	$self->logDebug("TEMPDIR", $self->tempdir());
 
 	#### CHECK INPUTS
 	$self->checkInputs();
@@ -132,23 +134,37 @@ method checkInputs {
 
 method moveConf () {
 	my $confdir 	=	$self->setConfDir();
-	my $tempdir	=	$self->setTempDir();
+	my $tempdir		=	$self->setTempDir();
+	$self->logDebug("confdir", $confdir);
+	$self->logDebug("tempdir", $tempdir);
+
+	#### CREATE TEMP DIR IF NOT EXISTS
 	`mkdir $tempdir` if not -d $tempdir;
 	$self->logError("Can't create tempdir", $tempdir) and exit if not -d $tempdir;
-	`chmod 700 $tempdir`;
+	my $chmod = "chmod 700 $tempdir";
+	$self->logDebug("chmod", $chmod);
+	`$chmod`;
 
+	#### MOVE FILES FROM CONF DIR TO TEMP DIR
 	my $command = "mv -f $confdir/* $tempdir";
-	$self->logDebug("command", $command);
-	
+	$self->logDebug("command", $command);	
 	$self->runCommand($command);
 }
 
 method restoreConf {
 	my $confdir 	=	$self->setConfDir();
 	my $tempdir		=	$self->setTempDir();
+	$self->logDebug("confdir", $confdir);
+	$self->logDebug("tempdir", $tempdir);
+
+	#### CREATE CONF DIR IF NOT EXISTS
 	`mkdir $confdir` if not -d $confdir;
 	$self->logError("Can't create confdir", $confdir) and exit if not -d $confdir;
-	`chmod 700 $confdir`;
+	my $chmod = "chmod 700 $confdir";
+	$self->logDebug("chmod", $chmod);
+	`$chmod`;
+
+	#### COPY FROM TEMP TO CONFDIR
 	my $command 	= "cp -fr $tempdir/* $confdir";
 	$self->logDebug("command", $command);
 

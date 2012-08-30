@@ -125,8 +125,38 @@ method loadProjects {
 	$loader->username("agua");
 	$loader->owner("agua");
 
+	#### COPY FROM login WORKFLOWS IF login IS NOT agua
+	my $login = $self->login();
+	$self->logDebug("login", $login);
+	$self->copyLoginWorkflows($login) if $login ne "agua";
+
+	#### LOAD WORKFLOWS INTO DATABASE
 	my $package = "workflows";
 	$loader->loadProjectFiles ("agua", $package, $installdir, $workflowdir);
+}
+
+method copyLoginWorkflows ($login) {
+	$self->logDebug("login", $login);
+
+	#### SET SOURCE DIR
+	my $opsdir 	=	$self->opsdir();
+	$self->logDebug("opsdir", $opsdir);	
+	my $sourcedir = 	"$opsdir/workflows";
+	$self->logDebug("sourcedir", $sourcedir);
+
+	#### SET WORKFLOW DIR
+	my $targetdir = 	$sourcedir;
+	$targetdir =~ s/$login/agua/g;
+	$self->logDebug("targetdir", $targetdir);
+
+	#### CREATE TARGET DIR
+	`mkdir -p $targetdir` if not -d $targetdir;
+	$self->logCritical("Can't create targetdir", $targetdir) and exit if not -d $targetdir;;
+
+	return if not -d $sourcedir;
+	my $command = "cp -fr $sourcedir/* $targetdir";
+	$self->logDebug("command", $command);
+	`$command`;
 }
 
 method setAccess {
