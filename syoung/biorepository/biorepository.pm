@@ -75,13 +75,14 @@ method postInstall {
 	$self->logDebug("");
 	$self->logDebug("biorepository    self->dbobject()", $self->dbobject());
 
-	#### RUN INSTALL TO SET PERMISSIONS, ETC.
-	$self->logDebug("Doing loadProjects()");
-	$self->loadProjects();
+	##### RUN INSTALL TO SET PERMISSIONS, ETC.
+	#$self->logDebug("Doing loadProjects()");
+	#$self->loadProjects();
 	
 	#### SET ACCESS
 	$self->logDebug("Doing setAccess()");
 	$self->setAccess();
+	$self->logDebug("Completed setAccess()");
 
 	return "Completed postInstall";
 }
@@ -114,7 +115,7 @@ method loadProjects {
 		username	=>	$self->username(),
 		sessionId	=>	$self->sessionId(),
 		installdir	=>	$installdir,
-			
+		
 		opsdir		=>	$opsdir,
 		workflowdir	=>	$workflowdir,
 		conf		=>	$self->conf(),
@@ -177,6 +178,7 @@ method setAccess {
 	#### insert into access values ('agua','projects', 1,1,1,1,1,1);
 	$self->_addToTable($table, $hash, $required);
 
+
 	#### GET PROJECT OBJECTS
 	my $projectobjects = $self->getProjectObjects();
 	$self->logDebug("no. projectobjects", scalar(@$projectobjects));
@@ -197,9 +199,6 @@ method setAccess {
 		#### insert into groupmember values('agua','projects','Description of ','Project2','project', '','');
 		$self->_addToTable($table, $hash, $required);
 	}
-	
-	
-	
 }
 
 method 	getProjectObjects {
@@ -246,6 +245,8 @@ method 	getProjectObjects {
 
 		push @$projectobjects, $projectobject;	
 	}
+	
+	$self->logDebug("FINAL no. projectsobjects", scalar(@$projectobjects));
 	
 	return $projectobjects;
 }

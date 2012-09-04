@@ -23,10 +23,19 @@ method preInstall {
 	$self->hubtype("github");
 	$self->privacy("public");
 
-	$self->logDebug("TEMPDIR", $self->tempdir());
-
+	$self->logDebug("self->owner()", $self->owner());
+	$self->logDebug("self->repository()", $self->repository());
+	$self->logDebug("self->package()", $self->package());
+	$self->logDebug("self->hubtype()", $self->hubtype());
+	$self->logDebug("self->privacy()", $self->privacy());
+	$self->logDebug("self->tempdir()", $self->tempdir());
+	
 	#### CHECK INPUTS
 	$self->checkInputs();
+
+	#### STORE CONF IN MEMORY
+	$self->conf()->memory(1);
+	$self->conf()->read();
 
 	#### MOVE CONF FILE
 	$self->moveConf();
@@ -60,7 +69,7 @@ method postInstall {
 	$self->conf()->setKey("agua", "VERSION", $version);
 
 	#### RUN INSTALL TO SET PERMISSIONS, ETC.
-	$self->runUpgrade();
+	my $output = $self->runUpgrade();
 
 	return "Completed postInstall";
 }
@@ -91,16 +100,20 @@ method runUpgrade {
 	$installdir = "/agua" if not defined $installdir;
 	$self->logDebug("installdir", $installdir);
 
-	my $logfile = $self->logfile();
 	$self->changeDir("$installdir/bin/scripts");
 	my $command = qq{$installdir/bin/scripts/install.pl \\
 --mode upgrade \\
---installdir $installdir \\
---logfile $logfile
+--installdir $installdir
 };
 	$self->logDebug("command", $command);
 
 	$self->runCommand($command);
+	my $logfile = "/tmp/agua-install.log";
+	my $output = `cat $logfile`;
+	
+	return "ERROR running upgrade during postInstall:\n\n$output" if $output !~ /Completed \S+\/install.pl/ms;
+
+	return $output;
 }
 
 method checkInputs {
