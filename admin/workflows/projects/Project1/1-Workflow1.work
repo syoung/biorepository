@@ -6,14 +6,14 @@
    "project" : "Project1",
    "apps" : [
       {
-         "stagepid" : "8",
+         "stagepid" : "1",
          "status" : "completed",
          "workflowpid" : "0",
          "localonly" : "0",
          "ordinal" : 1,
          "url" : null,
          "stagejobid" : "0",
-         "completed" : "2012-09-15 12:09:21",
+         "completed" : "2012-09-20 09:55:04",
          "owner" : "admin",
          "stderrfile" : "/nethome/admin/agua/Project1/Workflow1/stdout/1-FTP.stderr",
          "location" : "bin/utils/FTP.pl",
@@ -114,18 +114,18 @@
          ],
          "notes" : "",
          "type" : "utility",
-         "started" : "2012-09-15 12:09:06",
-         "queued" : "2012-09-15 12:09:01"
+         "started" : "2012-09-20 09:47:51",
+         "queued" : "2012-09-20 09:47:45"
       },
       {
-         "stagepid" : "9",
+         "stagepid" : "2",
          "status" : "completed",
          "workflowpid" : "0",
          "localonly" : "0",
          "ordinal" : 2,
          "url" : null,
          "stagejobid" : "0",
-         "completed" : "2012-09-15 12:09:45",
+         "completed" : "2012-09-20 09:55:33",
          "owner" : "admin",
          "stderrfile" : "/nethome/admin/agua/Project1/Workflow1/stdout/2-unzipFiles.stderr",
          "location" : "bin/utils/unzipFiles.pl",
@@ -243,18 +243,18 @@
          ],
          "notes" : "",
          "type" : "utility",
-         "started" : "2012-09-15 12:09:34",
-         "queued" : "2012-09-15 12:09:24"
+         "started" : "2012-09-20 09:55:17",
+         "queued" : "2012-09-20 09:55:07"
       },
       {
-         "stagepid" : "10",
+         "stagepid" : "3",
          "status" : "completed",
          "workflowpid" : "0",
          "localonly" : "0",
          "ordinal" : 3,
          "url" : null,
          "stagejobid" : "0",
-         "completed" : "2012-09-15 12:09:59",
+         "completed" : "2012-09-20 09:55:57",
          "owner" : "admin",
          "stderrfile" : "/nethome/admin/agua/Project1/Workflow1/stdout/3-elandIndex.stderr",
          "location" : "bin/converters/elandIndex.pl",
@@ -321,8 +321,8 @@
          ],
          "notes" : "",
          "type" : "converter",
-         "started" : "2012-09-15 12:09:54",
-         "queued" : "2012-09-15 12:09:48"
+         "started" : "2012-09-20 09:55:47",
+         "queued" : "2012-09-20 09:55:36"
       }
    ],
    "name" : "Workflow1",
